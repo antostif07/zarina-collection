@@ -46,6 +46,7 @@ export default function Gallery() {
             //   className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             // >
               <img
+                    key={image}
                 alt="Zarina_Dressing"
                 className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110 my-2"
                 style={{ transform: 'translate3d(0, 0, 0)' }}
