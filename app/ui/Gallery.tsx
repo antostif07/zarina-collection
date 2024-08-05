@@ -70,43 +70,6 @@ export default function Gallery() {
                     24 novembre à l’immeuble Paradi’s M juste en face de l’Académie des Beaux-Arts.
                     </p>
                 </div>
-<<<<<<< HEAD
-                {p.map((product: any, index) => (
-                    <div key={index}>
-                        {
-                            product.color.map((c: any, i: number) => (
-                                <img
-                                    key={`${c.name}-${i}`}
-                                    alt="Zarina_Dressing"
-                                    className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110 my-2"
-                                    style={{ transform: 'translate3d(0, 0, 0)' }}
-                                    src={c.image}
-                                    width={720}
-                                    height={480}
-                                    sizes="(max-width: 640px) 100vw,
-                                    (max-width: 1280px) 50vw,
-                                    (max-width: 1536px) 33vw,
-                                    25vw"
-                                />
-                            ))
-                        }
-                        <div className="flex items-center justify-between">
-                                <Button className="bg-green-600 hover:bg-green-700" asChild>
-                                    <a href={`https://wa.me/243841111555?text=Salut%20,%20Zarina%20Dressing.%20je%20voudrais%20commander%20un%20produit?`} target="_blank">
-                                        <FaWhatsapp className="mr-2 h-4 w-4" /> Commander
-                                    </a>
-                                </Button>
-                                {/* @ts-ignore */}
-                                <div className="flex flex-col items-end">
-                                    {/* @ts-ignore */}
-                                    <span>Taille: {product.taille.toString()}</span>
-                                    {/* @ts-ignore */}
-                                    <span className="text-3xl font-bold text-[#cb0b73]">{product.price}$</span>
-                                </div>
-                            </div>
-                    </div>
-                ))}
-=======
                 {images.map((image) => (
             // <Link
             //   key={id}
@@ -131,7 +94,6 @@ export default function Gallery() {
               />
             // </Link>
           ))}
->>>>>>> 3fc8179c299a4bc3cbad15cd0e1846f543f185db
             </div>
         </>
     )
