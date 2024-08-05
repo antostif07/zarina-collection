@@ -34,10 +34,10 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ${{ secrets.FTP_HOST }}
+          server: ftp.kolomabeledrc.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # This points to the build output directory of your Next.js app
-          server-dir: /
+          server-dir: /zarinadressing.com/zarina
           protocol: ftps
           timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
