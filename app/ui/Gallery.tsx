@@ -70,6 +70,7 @@ export default function Gallery() {
                     24 novembre à l’immeuble Paradi’s M juste en face de l’Académie des Beaux-Arts.
                     </p>
                 </div>
+<<<<<<< HEAD
                 {p.map((product: any, index) => (
                     <div key={index}>
                         {
@@ -105,6 +106,32 @@ export default function Gallery() {
                             </div>
                     </div>
                 ))}
+=======
+                {images.map((image) => (
+            // <Link
+            //   key={id}
+            //   href={`/?photoId=${id}`}
+            //   as={`/p/${id}`}
+            //   ref={id === Number(lastViewedPhoto) ? lastViewedPhotoRef : null}
+            //   shallow
+            //   className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
+            // >
+              <img
+                    key={image}
+                alt="Zarina_Dressing"
+                className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110 my-2"
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+                src={`https://pyiurs.com/catalog/zarina_images/${image}`}
+                width={720}
+                height={480}
+                sizes="(max-width: 640px) 100vw,
+                  (max-width: 1280px) 50vw,
+                  (max-width: 1536px) 33vw,
+                  25vw"
+              />
+            // </Link>
+          ))}
+>>>>>>> 3fc8179c299a4bc3cbad15cd0e1846f543f185db
             </div>
         </>
     )
