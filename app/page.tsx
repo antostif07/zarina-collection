@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Gallery from "./ui/Gallery";
+import * as XLSX from 'xlsx'
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="mx-auto max-w-[1960px] p-4">
       <Gallery />
