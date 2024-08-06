@@ -32,12 +32,12 @@ jobs:
           npm run build  # Build Next.js app
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           server: ftp.kolomabeledrc.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # This points to the build output directory of your Next.js app
           server-dir: /zarinadressing.com/zarina/
-          protocol: ftps
-          timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)
+          protocol: ftp
+          timeout: 300000000  # Set a longer timeout value in milliseconds (here, 2 minutes)
