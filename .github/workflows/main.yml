@@ -32,7 +32,7 @@ jobs:
           npm run build  # Build Next.js app
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
           server: ftp.kolomabeledrc.com
           username: ${{ secrets.FTP_USERNAME }}
