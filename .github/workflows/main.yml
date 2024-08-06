@@ -31,15 +31,14 @@ jobs:
           # echo JWT_SECRET=${{ secrets.JWT_SECRET }} >> .env.local
           npm run build  # Build Next.js app
 
-      - name: Deploy via FTP
-        uses: sebastianpopp/ftp-action@v2.0.0
-        with:
-          host: ftp.kolomabeledrc.com # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-          port: 21 # optional, default is: 21
-          user: ${{ secrets.FTP_USERNAME }} # FTP username
-          password: ${{ secrets.FTP_PASSWORD }} # FTP password
-          remoteDir: /zarinadressing.com/zarina/ # optional, remote path of your FTP server
-          localDir: . # optional, local path, default is: dist
+      - name: Deploy to FTP server
+        run: |
+          lftp -e "
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp.kolomabeledrc.com
+            set ssl:verify-certificate no  # Optional: Disable SSL verification if needed
+            mirror -R -e -x .git/ -x .github/ -x .next/ -x node_modules/ . /zarinadressing.com/zarina/
+            bye
+          "
           # SFTP credentials
           # host: sftp.kolomabeledrc.com
           # port: 21
