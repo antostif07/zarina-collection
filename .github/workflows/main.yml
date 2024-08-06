@@ -35,14 +35,15 @@ jobs:
           npm run build  # Build Next.js app
 
       - name: Deploy via FTP
-        uses: milanmk/actions-file-deployer@master
+        uses: sand4rt/ftp-deployer@v1.8
         with:
-          remote-protocol: "ftp"
-          remote-host: "ftp.kolomabeledrc.com"
-          remote-user: ${{ secrets.FTP_USERNAME }}
-          remote-password: ${{ secrets.FTP_PASSWORD }}
-          remote-path: "/zarinadressing.com/zarina/"
-          remote-port: 21
+          sftp: false # optional
+          host: ftp.kolomabeledrc.com # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+          port: 21 # optional, default is: 21
+          username: ${{ secrets.FTP_USERNAME }} # FTP username
+          password: ${{ secrets.FTP_PASSWORD }} # FTP password
+          remote_folder: /zarinadressing.com/zarina/ # optional, remote path of your FTP server
+          local_folder: . # optional, local path, default is: dist
           # SFTP credentials
           # host: sftp.kolomabeledrc.com
           # port: 21
@@ -57,16 +58,4 @@ jobs:
           # reverse: true
           # ignoreFile: '.lftp_ignore'
           # options: '--verbose'
-        # run: |
-        #   lftp -e "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ftp.kolomabeledrc.com; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x .next/ -x node_modules/ 
-        #   . /zarina_dressing/zarina; bye"
-          
-        # uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        # with:
-        #   server: ftp.kolomabeledrc.com
-        #   username: ${{ secrets.FTP_USERNAME }}
-        #   password: ${{ secrets.FTP_PASSWORD }}
-        #   local-dir: ./  # This points to the build output directory of your Next.js app
-        #   server-dir: /zarinadressing.com/zarina/
-        #   protocol: ftp
-        #   timeout: 300000000  # Set a longer timeout value in milliseconds (here, 2 minutes)
+        
