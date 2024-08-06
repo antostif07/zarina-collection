@@ -32,15 +32,14 @@ jobs:
           npm run build  # Build Next.js app
 
       - name: Deploy via FTP
-        uses: sand4rt/ftp-deployer@v1.8
+        uses: sebastianpopp/ftp-action@v2.0.0
         with:
-          sftp: false # optional
           host: ftp.kolomabeledrc.com # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
           port: 21 # optional, default is: 21
-          username: ${{ secrets.FTP_USERNAME }} # FTP username
+          user: ${{ secrets.FTP_USERNAME }} # FTP username
           password: ${{ secrets.FTP_PASSWORD }} # FTP password
-          remote_folder: /zarinadressing.com/zarina/ # optional, remote path of your FTP server
-          local_folder: . # optional, local path, default is: dist
+          remoteDir: /zarinadressing.com/zarina/ # optional, remote path of your FTP server
+          localDir: . # optional, local path, default is: dist
           # SFTP credentials
           # host: sftp.kolomabeledrc.com
           # port: 21
