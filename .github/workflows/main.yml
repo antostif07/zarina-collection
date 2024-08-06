@@ -37,11 +37,12 @@ jobs:
       - name: Deploy via FTP
         uses: milanmk/actions-file-deployer@master
         with:
-          remote-protocol: "sftp"
+          remote-protocol: "ftp"
           remote-host: "ftp.kolomabeledrc.com"
           remote-user: ${{ secrets.FTP_USERNAME }}
-          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          remote-password: ${{ secrets.FTP_PASSWORD }}
           remote-path: "/zarinadressing.com/zarina/"
+          remote-port: 21
           # SFTP credentials
           # host: sftp.kolomabeledrc.com
           # port: 21
